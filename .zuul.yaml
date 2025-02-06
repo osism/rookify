@@ -7,8 +7,10 @@
         - flake8
         - hadolint
         - python-black
+        - yamllint
     periodic-daily:
       jobs:
         - flake8
         - hadolint
         - python-black
+        - yamllint

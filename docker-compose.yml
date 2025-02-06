@@ -1,3 +1,4 @@
+---
 version: '3'
 
 services:
@@ -12,8 +13,9 @@ services:
       args:
         - ROOKIFY_VERSION=${ROOKIFY_VERSION:-0.0.0.dev1}
     volumes:
-      - ./:/app/rookify/src:Z # Be sure your config.yaml is correct, see src/config.example.yml and copy it to the root of the app
-                              # note: you might have to copy the dir `.ceph/` from your testbed and then use sshuttle or `make vpn-sshuttle` from you testbed repo to be able to reach the remotes locally
-                              # note: you might to need to copy rsa-keys from testbed/terraform/.ssh (depending on what your name is from the testbed)
+      # Be sure your config.yaml is correct, see src/config.example.yml and copy it to the root of the app
+      # note: you might have to copy the dir `.ceph/` from your testbed and then use sshuttle or `make vpn-sshuttle` from you testbed repo to be able to reach the remotes locally
+      # note: you might to need to copy rsa-keys from testbed/terraform/.ssh (depending on what your name is from the testbed)
+      - ./:/app/rookify/src:Z
     entrypoint: ["sleep"]
     command: ["infinity"]
