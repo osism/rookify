@@ -129,9 +129,9 @@ class MigrateRgwsHandler(ModuleHandler):
 
         migrated_rgws.append(rgw_host)
 
-        self.machine.get_execution_state(
-            "MigrateRgwsHandler"
-        ).migrated_rgws = migrated_rgws
+        self.machine.get_execution_state("MigrateRgwsHandler").migrated_rgws = (
+            migrated_rgws
+        )
 
         if is_migration_required:
             self.logger.debug(

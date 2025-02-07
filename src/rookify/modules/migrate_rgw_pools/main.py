@@ -141,17 +141,17 @@ class MigrateRgwPoolsHandler(ModuleHandler):
 
         migrated_zones.append(zone_name)
 
-        self.machine.get_execution_state(
-            "MigrateRgwPoolsHandler"
-        ).migrated_zones = migrated_zones
+        self.machine.get_execution_state("MigrateRgwPoolsHandler").migrated_zones = (
+            migrated_zones
+        )
 
         for osd_pool_name in osd_pools:
             if osd_pool_name not in migrated_pools:
                 migrated_pools.append(osd_pool_name)
 
-        self.machine.get_execution_state(
-            "MigrateRgwPoolsHandler"
-        ).migrated_pools = migrated_pools
+        self.machine.get_execution_state("MigrateRgwPoolsHandler").migrated_pools = (
+            migrated_pools
+        )
 
         self.logger.info("Migrated ceph-rgw zone '{0}'".format(zone_name))
 
