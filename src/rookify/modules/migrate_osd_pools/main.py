@@ -95,9 +95,9 @@ class MigrateOSDPoolsHandler(ModuleHandler):
         self.k8s.crd_api_apply(pool_definition.yaml)
         migrated_pools.append(pool["pool_name"])
 
-        self.machine.get_execution_state(
-            "MigrateOSDPoolsHandler"
-        ).migrated_pools = migrated_pools
+        self.machine.get_execution_state("MigrateOSDPoolsHandler").migrated_pools = (
+            migrated_pools
+        )
 
         self.logger.info("Migrated ceph-osd pool '{0}'".format(pool["pool_name"]))
 

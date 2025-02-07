@@ -43,9 +43,9 @@ class CreateRookResourcesHandler(ModuleHandler):
             api_version="v1", kind="ConfigMap", metadata=metadata, data=configmap_data
         )
 
-        self.machine.get_preflight_state(
-            "CreateRookResourcesHandler"
-        ).configmap = configmap.to_dict()
+        self.machine.get_preflight_state("CreateRookResourcesHandler").configmap = (
+            configmap.to_dict()
+        )
 
     def preflight(self) -> None:
         configmap = self.machine.get_preflight_state_data(
@@ -96,9 +96,9 @@ class CreateRookResourcesHandler(ModuleHandler):
             self._config["rook"]["cluster"]["namespace"], body=configmap
         )
 
-        self.machine.get_execution_state(
-            "CreateRookResourcesHandler"
-        ).configmap = configmap_created.to_dict()
+        self.machine.get_execution_state("CreateRookResourcesHandler").configmap = (
+            configmap_created.to_dict()
+        )
 
         # Get or create needed auth keys
         admin_auth: Dict[str, Any] = self.ceph.mon_command(
@@ -132,9 +132,9 @@ class CreateRookResourcesHandler(ModuleHandler):
             self._config["rook"]["cluster"]["namespace"], body=secret
         )
 
-        self.machine.get_execution_state(
-            "CreateRookResourcesHandler"
-        ).secret = secret.to_dict()
+        self.machine.get_execution_state("CreateRookResourcesHandler").secret = (
+            secret.to_dict()
+        )
 
     def get_readable_key_value_state(self) -> Dict[str, str]:
         kv_state_data = OrderedDict()

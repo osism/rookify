@@ -89,9 +89,9 @@ class MigrateMgrsHandler(ModuleHandler):
 
         migrated_mgrs.append(mgr_host)
 
-        self.machine.get_execution_state(
-            "MigrateMgrsHandler"
-        ).migrated_mgrs = migrated_mgrs
+        self.machine.get_execution_state("MigrateMgrsHandler").migrated_mgrs = (
+            migrated_mgrs
+        )
 
         mgr_count_expected = self.machine.get_preflight_state_data(
             "CreateRookClusterHandler", "mgr_count", default_value=3

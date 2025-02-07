@@ -89,9 +89,9 @@ class MigrateOSDsHandler(ModuleHandler):
 
         self.k8s.check_nodes_for_initial_label_state(self.k8s.osd_placement_label)
 
-        self.machine.get_preflight_state(
-            "MigrateOSDsHandler"
-        ).osd_host_devices = self._get_devices_of_hosts()
+        self.machine.get_preflight_state("MigrateOSDsHandler").osd_host_devices = (
+            self._get_devices_of_hosts()
+        )
 
     def execute(self) -> None:
         osd_host_devices = self.machine.get_preflight_state_data(
@@ -209,9 +209,9 @@ class MigrateOSDsHandler(ModuleHandler):
         for osd_id in osd_ids:
             migrated_osd_ids.append(osd_id)
 
-        self.machine.get_execution_state(
-            "MigrateOSDsHandler"
-        ).migrated_osd_ids = migrated_osd_ids
+        self.machine.get_execution_state("MigrateOSDsHandler").migrated_osd_ids = (
+            migrated_osd_ids
+        )
 
         for osd_id in osd_ids:
             self.logger.debug(

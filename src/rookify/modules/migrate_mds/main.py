@@ -74,9 +74,9 @@ class MigrateMdsHandler(ModuleHandler):
 
             migrated_mds.append(mds_host)
 
-            self.machine.get_execution_state(
-                "MigrateMdsHandler"
-            ).migrated_mds = migrated_mds
+            self.machine.get_execution_state("MigrateMdsHandler").migrated_mds = (
+                migrated_mds
+            )
 
             if is_migration_required:
                 self._enable_rook_based_mds(mds_host)
