@@ -1,11 +1,12 @@
+---
 general:
   machine_pickle_file: data.pickle
 
 logging:
-  level: INFO # level at which logging should start
+  level: INFO  # level at which logging should start
   format:
-    time: "%Y-%m-%d %H:%M.%S" # other example: "iso"
-    renderer: console # or: json
+    time: "%Y-%m-%d %H:%M.%S"  # other example: "iso"
+    renderer: console  # or: json
 
 ceph:
   config: ./.ceph/ceph.conf
@@ -40,8 +41,8 @@ rook:
   ceph:
     image: quay.io/ceph/ceph:v18.2.1
   flags:
-    mds_support_metadata_name: False
+    mds_support_metadata_name: false
 
 migration_modules:
-- example
-- osism_configuration
+  - example
+  - osism_configuration

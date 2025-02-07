@@ -1,3 +1,4 @@
+---
 general:
   machine_pickle_file: str(required=False)
 
@@ -9,7 +10,7 @@ logging:
 
 ceph:
   config: str()
-  flags: map(key=str(), required=False) # @TODO: Replace with include once we support at least one Ceph flag
+  flags: map(key=str(), required=False)  # @TODO: Replace with include once we support at least one Ceph flag
   keyring: str()
   systemd_file_name_templates: include("systemd_file_name_templates", required=False)
 
@@ -19,7 +20,7 @@ ssh:
 
 kubernetes:
   config: str()
-  flags: map(key=str(), required=False) # @TODO: Replace with include once we support at least one Kubernetes flag
+  flags: map(key=str(), required=False)  # @TODO: Replace with include once we support at least one Kubernetes flag
 
 rook:
   cluster:
@@ -39,17 +40,20 @@ rook:
   flags: include("rook_flags", required=False)
 
 migration_modules: list(str())
+
 ---
 rook_flags:
-    mds_support_metadata_name: bool()
+  mds_support_metadata_name: bool()
+
 ---
 ssh_host:
-    address: ip()
-    user: str()
+  address: ip()
+  user: str()
+
 ---
 systemd_file_name_templates:
-    mds: str(required=False)
-    mgr: str(required=False)
-    mon: str(required=False)
-    osd: str(required=False)
-    rgw: str(required=False)
+  mds: str(required=False)
+  mgr: str(required=False)
+  mon: str(required=False)
+  osd: str(required=False)
+  rgw: str(required=False)
